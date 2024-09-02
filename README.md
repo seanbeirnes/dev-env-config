@@ -2,54 +2,21 @@
 My homebrew config
 
 ## ==> Formulae
-- brotli
-- gcc
-- isl
-- libnghttp2
-- lpeg
-- lz4
-- neovim
-- pcre2
-- unibilium
-- zstd
-- c-ares
-- gettext
-- libevent
-- libssh2
-- lua
-- mpfr
-- nmap
-- ripgrep
-- utf8proc
-- ca-certificates
-- gmp
-- liblinear
-- libuv
-- luajit
-- msgpack
-- node
-- tmux
-- xz
-- docker-compose
-- icu4c
-- libmpc
-- libvterm
-- luv
-- ncurses
-- openssl@3
-- tree-sitter
-- yarn
+<pre>
+brotli		icu4c		libvterm	ncurses		tree-sitter
+c-ares		isl		lpeg		neovim		unibilium
+ca-certificates	libevent	lua		nmap		utf8proc
+docker-compose	liblinear	luajit		node		xz
+gcc		libmpc		luv		openssl@3	yarn
+gettext		libnghttp2	lz4		pcre2		zstd
+gmp		libssh2		mpfr		ripgrep
+go		libuv		msgpack		tmux
+</pre>
 
 ## ==> Casks
-- docker
-- font-meslo-lg-nerd-font
-- iterm2
-- obsidian
-- parsec
-- visual-studio-code
-- firefox
-- google-chrome
-- microsoft-edge
-- opera
-- spotify
-- wireshark
+<pre>
+docker			iterm2			parsec
+firefox			microsoft-edge		spotify
+font-meslo-lg-nerd-font	obsidian		visual-studio-code
+google-chrome		opera			wireshark
+</pre>
