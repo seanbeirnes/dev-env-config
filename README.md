@@ -12,22 +12,27 @@ The following are the main applications that are used/installed in this develope
 - [Homebrew (Package Manager)](https://brew.sh/)
 - [NeoVim (Text Editor)](https://neovim.io/)
 
-*Note:* My Neovim config is located in a separate repo, but will be copied using this script: [https://github.com/seanbeirnes/vim-config](https://github.com/seanbeirnes/vim-config)
+**Note:** My Neovim config is located in a separate repo, but will be copied using this script: [https://github.com/seanbeirnes/vim-config](https://github.com/seanbeirnes/vim-config)
 
 ## Instructions
-*Important:* Homebrew must be installed before continuing.
+**Important:** Homebrew must be installed before continuing.
 
 1. Clone the repo locally
 ```bash
 git clone https://github.com/seanbeirnes/dev-env-config.git
 ```
+2. Change to the cloned directory
+```bash
+cd dev-env-config
+```
 
-2. Make the script executable
+3. Make the script executable
 ```bash
 chmod +x sync.sh
 ```
 
-3. Run the script
+3
+4. Run the script
 ```bash
 ./sync.sh
 ```
