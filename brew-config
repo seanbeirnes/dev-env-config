@@ -1,0 +1,38 @@
+==> Formulae
+bat                     lua
+brotli                  luajit
+c-ares                  luv
+ca-certificates         lz4
+docker-compose          mpfr
+fzf                     msgpack
+gcc                     ncurses
+gettext                 neovim
+gmp                     nmap
+go                      node
+icu4c@76                oniguruma
+isl                     openssl@3
+libevent                pcre2
+libgit2                 ripgrep
+liblinear               tmux
+libmpc                  tree-sitter
+libnghttp2              unibilium
+libssh2                 utf8proc
+libunistring            xz
+libuv                   yarn
+libvterm                zsh-autosuggestions
+lpeg                    zstd
+
+==> Casks
+cyberduck
+docker
+firefox
+font-open-dyslexic-nerd-font
+ghostty
+google-chrome
+microsoft-edge
+obsidian
+opera
+parsec
+spotify
+visual-studio-code
+wireshark
