@@ -23,16 +23,9 @@ libvterm                zsh-autosuggestions
 lpeg                    zstd
 
 ==> Casks
-cyberduck
-docker
-firefox
-font-open-dyslexic-nerd-font
-ghostty
-google-chrome
-microsoft-edge
-obsidian
-opera
-parsec
-spotify
-visual-studio-code
-wireshark
+cyberduck               obsidian
+docker                  opera
+firefox                 parsec
+ghostty                 spotify
+google-chrome           visual-studio-code
+microsoft-edge          wireshark
