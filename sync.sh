@@ -10,10 +10,22 @@ spinner() {
         i=$((i + 1))    
         sleep "$delay"
     done
-    printf "\r[✔] Done!                                                                                            \n"
+    printf "\r[✔] %-120s\n" "Done!"
 }
+
+syncbrew=false
+
+while true; do
+    read -p "Would you like to sync all Homebrew fomulae and casks? [Y/n] (Warning: This may take a while) " answer
+    case $answer in
+        [Yy]* ) syncbrew=true; break;;
+        [Nn]* ) break;;
+        * ) echo "Invalid input: Enter 'y' or 'n'";;
+    esac
+done
+
 chmod +x ./helper.sh
 
-./helper.sh & helper_pid=$!
+./helper.sh "$syncbrew" & helper_pid=$!
 
 spinner "$helper_pid"
