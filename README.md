@@ -3,20 +3,22 @@ My homebrew config
 
 ## ==> Formulae
 <pre>
-brotli		icu4c		libvterm	ncurses		tree-sitter
-c-ares		isl		lpeg		neovim		unibilium
-ca-certificates	libevent	lua		nmap		utf8proc
-docker-compose	liblinear	luajit		node		xz
-gcc		libmpc		luv		openssl@3	yarn
-gettext		libnghttp2	lz4		pcre2		zstd
-gmp		libssh2		mpfr		ripgrep
-go		libuv		msgpack		tmux
+bat                     isl                     lua                     openssl@3
+brotli                  libevent                luajit                  pcre2
+c-ares                  libgit2                 luv                     ripgrep
+ca-certificates         liblinear               lz4                     tmux
+docker-compose          libmpc                  mpfr                    tree-sitter
+fzf                     libnghttp2              msgpack                 unibilium
+gcc                     libssh2                 ncurses                 utf8proc
+gettext                 libunistring            neovim                  xz
+gmp                     libuv                   nmap                    yarn
+go                      libvterm                node                    zsh-autosuggestions
+icu4c@76                lpeg                    oniguruma               zstd
 </pre>
 
 ## ==> Casks
 <pre>
-docker			iterm2			parsec
-firefox			microsoft-edge		spotify
-font-meslo-lg-nerd-font	obsidian		visual-studio-code
-google-chrome		opera			wireshark
+cyberduck               ghostty                 obsidian                spotify
+docker                  google-chrome           opera                   visual-studio-code
+firefox                 microsoft-edge          parsec                  wireshark
 </pre>
