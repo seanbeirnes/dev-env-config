@@ -31,7 +31,6 @@ cd dev-env-config
 chmod +x sync.sh
 ```
 
-3
 4. Run the script
 ```bash
 ./sync.sh
