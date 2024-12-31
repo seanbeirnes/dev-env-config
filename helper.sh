@@ -8,6 +8,7 @@ chmod +x ./ghostty/sync-ghostty.sh
 chmod +x ./nvim/sync-nvim.sh
 chmod +x ./zsh/sync-zsh.sh
 chmod +x ./tmux/sync-tmux.sh
+chmod +x ./karabiner/sync-karabiner.sh
 
 
 printf "\r\t %-120s" "Running helper scripts..."
@@ -21,3 +22,4 @@ fi
 ./nvim/sync-nvim.sh
 ./zsh/sync-zsh.sh
 ./tmux/sync-tmux.sh
+./karabiner/sync-karabiner.sh
