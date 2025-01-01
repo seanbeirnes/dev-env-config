@@ -4,6 +4,31 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Change the esc key to the tab key if held down",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 100,
+                                    "basic.to_if_alone_timeout_milliseconds": 100,
+                                    "basic.to_if_held_down_threshold_milliseconds": 100
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "escape" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "tab" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change the = key to the ` key if held down",
                         "manipulators": [
                             {
@@ -23,38 +48,310 @@
                                         "key_code": "equal_sign"
                                     }
                                 ],
-                                "to_if_held_down": [{ "key_code": "grave_accent_and_tilde" }],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde",
+                                        "repeat": false
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Change the esc key to the tab key if held down",
+                        "description": "Holding x, c, v, and b = cut, copy, paste, and select all",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "escape",
+                                    "key_code": "c",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_alone_timeout_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_delayed_action_delay_milliseconds": 200,
+                                    "basic.to_if_alone_timeout_milliseconds": 200,
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
                                 },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "escape" }] },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "c" }] },
                                 "to_if_alone": [
                                     {
                                         "halt": true,
-                                        "key_code": "escape"
+                                        "key_code": "c"
                                     }
                                 ],
-                                "to_if_held_down": [{ "key_code": "tab" }],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["command"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 200,
+                                    "basic.to_if_alone_timeout_milliseconds": 200,
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "v" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "v"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": ["command"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 200,
+                                    "basic.to_if_alone_timeout_milliseconds": 200,
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "x" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "x"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "x",
+                                        "modifiers": ["command"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 200,
+                                    "basic.to_if_alone_timeout_milliseconds": 200,
+                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "b" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "b"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "a",
+                                        "modifiers": ["command"],
+                                        "repeat": false
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "Change the a key to the left control key if held down",
+                        "description": "Command + Shift custom layer",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "comma",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "period",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "comma",
+                                        "modifiers": ["shift"]
+                                    },
+                                    {
+                                        "key_code": "period",
+                                        "modifiers": ["shift"]
+                                    },
+                                    { "key_code": "left_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "0",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": ["shift"]
+                                    },
+                                    {
+                                        "key_code": "0",
+                                        "modifiers": ["shift"]
+                                    },
+                                    { "key_code": "left_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "quote",
+                                        "modifiers": ["shift"]
+                                    },
+                                    {
+                                        "key_code": "quote",
+                                        "modifiers": ["shift"]
+                                    },
+                                    { "key_code": "left_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": ["shift"]
+                                    },
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": ["shift"]
+                                    },
+                                    { "key_code": "left_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "open_bracket",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "close_bracket",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [
+                                    { "key_code": "open_bracket" },
+                                    { "key_code": "close_bracket" },
+                                    { "key_code": "left_arrow" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [{ "key_code": "open_bracket" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [{ "key_code": "close_bracket" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap home row keys to modifiers on hold",
                         "manipulators": [
                             {
                                 "from": {
@@ -62,8 +359,8 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_delayed_action_delay_milliseconds": 125,
+                                    "basic.to_if_held_down_threshold_milliseconds": 125
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "a" }] },
                                 "to_if_alone": [
@@ -74,20 +371,34 @@
                                 ],
                                 "to_if_held_down": [{ "key_code": "left_control" }],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change the s key to the left option key if held down",
-                        "manipulators": [
+                            },
+                            {
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 125,
+                                    "basic.to_if_held_down_threshold_milliseconds": 125
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "semicolon" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "semicolon"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "right_control" }],
+                                "type": "basic"
+                            },
                             {
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_delayed_action_delay_milliseconds": 125,
+                                    "basic.to_if_held_down_threshold_milliseconds": 125
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "s" }] },
                                 "to_if_alone": [
@@ -98,116 +409,15 @@
                                 ],
                                 "to_if_held_down": [{ "key_code": "left_option" }],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change the d key to the left shfit key if held down",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "d",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
-                                },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "d" }] },
-                                "to_if_alone": [
-                                    {
-                                        "halt": true,
-                                        "key_code": "d"
-                                    }
-                                ],
-                                "to_if_held_down": [{ "key_code": "left_shift" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change the f key to the left command key if held down",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "f",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
-                                },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "f" }] },
-                                "to_if_alone": [
-                                    {
-                                        "halt": true,
-                                        "key_code": "f"
-                                    }
-                                ],
-                                "to_if_held_down": [{ "key_code": "left_command" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change the j key to the right command key if held down",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
-                                },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "j" }] },
-                                "to_if_alone": [
-                                    {
-                                        "halt": true,
-                                        "key_code": "j"
-                                    }
-                                ],
-                                "to_if_held_down": [{ "key_code": "right_command" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change the k key to the right shfit key if held down",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
-                                },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "d" }] },
-                                "to_if_alone": [
-                                    {
-                                        "halt": true,
-                                        "key_code": "k"
-                                    }
-                                ],
-                                "to_if_held_down": [{ "key_code": "right_shift" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change the l key to the right option key if held down",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_delayed_action_delay_milliseconds": 125,
+                                    "basic.to_if_held_down_threshold_milliseconds": 125
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "l" }] },
                                 "to_if_alone": [
@@ -218,29 +428,81 @@
                                 ],
                                 "to_if_held_down": [{ "key_code": "right_option" }],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change the ; key to the right control key if held down",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
-                                    "key_code": "semicolon",
+                                    "key_code": "d",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                    "basic.to_delayed_action_delay_milliseconds": 85,
+                                    "basic.to_if_held_down_threshold_milliseconds": 85
                                 },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "semicolon" }] },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "d" }] },
                                 "to_if_alone": [
                                     {
                                         "halt": true,
-                                        "key_code": "semicolon"
+                                        "key_code": "d"
                                     }
                                 ],
-                                "to_if_held_down": [{ "key_code": "right_control" }],
+                                "to_if_held_down": [{ "key_code": "left_shift" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 85,
+                                    "basic.to_if_held_down_threshold_milliseconds": 85
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "k" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "k"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "right_shift" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 115,
+                                    "basic.to_if_held_down_threshold_milliseconds": 115
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "f" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "f"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "left_command" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 115,
+                                    "basic.to_if_held_down_threshold_milliseconds": 115
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "j" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "j"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "right_command" }],
                                 "type": "basic"
                             }
                         ]
