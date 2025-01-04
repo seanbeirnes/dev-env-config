@@ -4,7 +4,37 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Change the esc key to the tab key if held down",
+                        "description": "ENTER == ENTER on tap and BACK_SPACE on hold",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 500,
+                                    "basic.to_if_alone_timeout_milliseconds": 500,
+                                    "basic.to_if_held_down_threshold_milliseconds": 500
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "return_or_enter" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "return_or_enter"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "CAPS_LOCK and ESC == ESC on tap and TAB on hold",
                         "manipulators": [
                             {
                                 "from": {
@@ -12,9 +42,29 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 100,
-                                    "basic.to_if_alone_timeout_milliseconds": 100,
-                                    "basic.to_if_held_down_threshold_milliseconds": 100
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_alone_timeout_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "escape" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "tab" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_alone_timeout_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "escape" }] },
                                 "to_if_alone": [
@@ -29,7 +79,7 @@
                         ]
                     },
                     {
-                        "description": "Change the = key to the ` key if held down",
+                        "description": "= == = on tap and ` on hold",
                         "manipulators": [
                             {
                                 "from": {
@@ -59,7 +109,7 @@
                         ]
                     },
                     {
-                        "description": "Holding x, c, v, and b = cut, copy, paste, and select all",
+                        "description": "x, c, v, and b == cut, copy, paste, and select-all on hold",
                         "manipulators": [
                             {
                                 "from": {
@@ -67,9 +117,9 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 200,
-                                    "basic.to_if_alone_timeout_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                    "basic.to_delayed_action_delay_milliseconds": 250,
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "c" }] },
                                 "to_if_alone": [
@@ -93,9 +143,9 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 200,
-                                    "basic.to_if_alone_timeout_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                    "basic.to_delayed_action_delay_milliseconds": 250,
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "v" }] },
                                 "to_if_alone": [
@@ -119,9 +169,9 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 200,
-                                    "basic.to_if_alone_timeout_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                    "basic.to_delayed_action_delay_milliseconds": 250,
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "x" }] },
                                 "to_if_alone": [
@@ -145,9 +195,9 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 200,
-                                    "basic.to_if_alone_timeout_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                    "basic.to_delayed_action_delay_milliseconds": 250,
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "b" }] },
                                 "to_if_alone": [
@@ -168,7 +218,107 @@
                         ]
                     },
                     {
-                        "description": "Command + Shift custom layer",
+                        "description": "COMMAND && SPACE custom layer for hjkl as arrow keys",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "cmd_space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "left_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "cmd_space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "down_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "cmd_space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "up_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "cmd_space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "right_arrow" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "cmd_space_layer",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "cmd_space_layer",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "COMMAND && SHIFT custom layer",
                         "manipulators": [
                             {
                                 "from": {
@@ -351,7 +501,7 @@
                         ]
                     },
                     {
-                        "description": "Remap home row keys to modifiers on hold",
+                        "description": "Home Row Keys == modifiers on hold",
                         "manipulators": [
                             {
                                 "from": {
@@ -359,8 +509,8 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 125,
-                                    "basic.to_if_held_down_threshold_milliseconds": 125
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "a" }] },
                                 "to_if_alone": [
@@ -378,8 +528,8 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 125,
-                                    "basic.to_if_held_down_threshold_milliseconds": 125
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "semicolon" }] },
                                 "to_if_alone": [
@@ -397,8 +547,8 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 125,
-                                    "basic.to_if_held_down_threshold_milliseconds": 125
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "s" }] },
                                 "to_if_alone": [
@@ -416,8 +566,8 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 125,
-                                    "basic.to_if_held_down_threshold_milliseconds": 125
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
                                 },
                                 "to_delayed_action": { "to_if_canceled": [{ "key_code": "l" }] },
                                 "to_if_alone": [
