@@ -10,9 +10,11 @@ In the event a new computer needs to be set up, this script should make it very 
 The following are the main applications that are used/installed in this developer environment config.
 - [Ghostty (Terminal Emulator)](https://ghostty.org/)
 - [Homebrew (Package Manager)](https://brew.sh/)
-- [NeoVim (Text Editor)](https://neovim.io/)
+- [Karabiner Elements (Key Remapper)](https://karabiner-elements.pqrs.org/)
+- [neovim (Text Editor)](https://neovim.io/)
+- [tmux (Terminal Multiplexer)](https://github.com/tmux/tmux/wiki)
 
-**Note:** My Neovim config is located in a separate repo, but will be copied using this script: [https://github.com/seanbeirnes/vim-config](https://github.com/seanbeirnes/vim-config)
+**Note:** My Neovim config is located in a [separate repo](https://github.com/seanbeirnes/vim-config), but will be copied using this script.
 
 ## Instructions
 **Important:** Homebrew must be installed before continuing.
