@@ -18,8 +18,8 @@ if [[ "$syncbrew" == "true" ]]; then
     ./brew/sync-brew.sh
 fi
 
+./zsh/sync-zsh.sh # Must be first in list
 ./ghostty/sync-ghostty.sh
 ./nvim/sync-nvim.sh
-./zsh/sync-zsh.sh
 ./tmux/sync-tmux.sh
 ./karabiner/sync-karabiner.sh
