@@ -29,3 +29,7 @@ chmod +x ./helper.sh
 ./helper.sh "$syncbrew" & helper_pid=$!
 
 spinner "$helper_pid"
+
+
+echo "You should restart your terminal session to reload configs."
+echo "Don't forget to set your git global config with your username and PRIVATE email"
